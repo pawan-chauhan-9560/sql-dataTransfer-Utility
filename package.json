@@ -1,0 +1,15 @@
+{
+  "name": "sql-table-transfer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pawan Chauhan <PawanChauhan933@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mssql": "^11.0.1",
+    "yargs": "^17.7.2"
+  },
+  "scripts": {
+    "start": "node index.js --src ETLMSSQL:vw_Kazakhstan_Import_Monthly_xlsx_final --dest REINDEXERMSSQL:vw_Kazakhstan_Import_Monthly_xlsx_final_6"
+  },
+  "bin": "./index.mjs"
+}

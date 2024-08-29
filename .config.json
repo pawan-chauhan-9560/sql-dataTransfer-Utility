@@ -1,0 +1,30 @@
+{
+    "connections": {
+        "source": {
+            "type": "sqlserver",
+            "database": "SourceDb",
+            "server": "localhost",
+            "password": "sa",
+            "port": 1433,
+            "user": "sa",
+            "options": {
+                "trustServerCertificate": true
+            }
+        },
+        "target": {
+            "type": "sqlserver",
+            "database": "TargetDb",
+            "server": "localhost",
+            "password": "sa",
+            "port": 1433,
+            "user": "sa",
+            "options": {
+                "trustServerCertificate": true
+            }
+        }
+    },
+    "commands": {
+        "download": "bcp ${sourceTable} out ${tempFileName} -n -S ${server} -d ${database} -U '${user}' -P '${password}' -u",
+        "upload": "bcp ${targetTable} in ${tempFileName} -n -S ${server} -d ${database} -U '${user}' -P '${password}' -u -b${batchSize}"
+    }
+}
