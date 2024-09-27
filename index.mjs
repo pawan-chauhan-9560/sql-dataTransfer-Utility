@@ -144,6 +144,8 @@ async function generateCreateTableQuery({ columns, table }) {
             } else if (column.NUMERIC_PRECISION) {
                 columnStatemet += `(${column.NUMERIC_PRECISION},${column.NUMERIC_SCALE})`;
             }
+        } else if (column.NUMERIC_PRECISION && column.DATA_TYPE === 'decimal') {
+            columnStatemet += `(${column.NUMERIC_PRECISION},${column.NUMERIC_SCALE})`;
         }
         columnStatemet += column.IS_NULLABLE === 'NO' ? ' NOT NULL' : '';
         if (column.COLUMN_DEFAULT) {
